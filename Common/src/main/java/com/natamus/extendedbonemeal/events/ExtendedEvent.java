@@ -12,8 +12,8 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.BlockHitResult;
 
 public class ExtendedEvent {
-	public static boolean onBoneMeal(Player player, Level world, BlockPos cpos, BlockState state, ItemStack stack) {
-		if (world.isClientSide) {
+	public static boolean onBoneMeal(Player player, Level level, BlockPos clickPos, BlockState blockState, ItemStack itemStack) {
+		if (level.isClientSide) {
 			return true;
 		}
 
@@ -24,62 +24,59 @@ public class ExtendedEvent {
 		if (!player.isCrouching()) {
 			return true;
 		}
-		
-		ItemStack handStack = player.getItemInHand(InteractionHand.MAIN_HAND);
-		if (!Util.isBoneMeal(handStack)) {
+
+		if (!Util.isBoneMeal(itemStack)) {
 			return true;
 		}
 		
-		Block block = state.getBlock();
+		Block block = blockState.getBlock();
 		if (!(block instanceof BonemealableBlock) || block instanceof SaplingBlock || block.equals(Blocks.GRASS_BLOCK) || block instanceof TallGrassBlock || block instanceof MushroomBlock) {
 			return true;
 		}
 
-		return !CropFunctions.growCrop(world, player, state, cpos);
+		return !CropFunctions.growCrop(level, player, blockState, clickPos, itemStack);
 	}
 	
-	public static boolean onCropClick(Level world, Player player, InteractionHand hand, BlockPos targetpos, BlockHitResult hitVec) {
-		if (world.isClientSide) {
+	public static boolean onCropClick(Level level, Player player, InteractionHand interactionHand, BlockPos targetPos, BlockHitResult blockHitResult) {
+		if (level.isClientSide) {
 			return true;
 		}
 		
-		ItemStack handStack = player.getItemInHand(hand);
+		ItemStack handStack = player.getItemInHand(interactionHand);
 		if (!Util.isBoneMeal(handStack)) {
 			return true;
 		}
 
-		BlockState state = world.getBlockState(targetpos);
+		BlockState state = level.getBlockState(targetPos);
 		Block block = state.getBlock();
 		if (block.equals(Blocks.AIR)) {
-			targetpos = targetpos.below().immutable();
-			state = world.getBlockState(targetpos);
+			targetPos = targetPos.below().immutable();
+			state = level.getBlockState(targetPos);
 			block = state.getBlock();
 		}
 		
 		if (block.equals(Blocks.NETHER_WART)) {
-			if (!CropFunctions.growCrop(world, player, state, targetpos)) {
-				return true;
-			}
+			return CropFunctions.growCrop(level, player, state, targetPos, handStack);
 		}
 		else if (block.equals(Blocks.CACTUS)) {
-			if (!CropFunctions.growCactus(world, targetpos)) {
+			if (!CropFunctions.growCactus(level, targetPos)) {
 				return true;
 			}
 		}
 		else if (block.equals(Blocks.SUGAR_CANE)) {
-			if (!CropFunctions.growSugarcane(world, targetpos)) {
+			if (!CropFunctions.growSugarcane(level, targetPos)) {
 				return true;
 			}
 		}
 		else if (block.equals(Blocks.VINE)) {
-			if (!CropFunctions.growVine(world, targetpos)) {
+			if (!CropFunctions.growVine(level, targetPos)) {
 				return true;
 			}
 		}
 		else {
 			return true;
 		}
-		
+
 		if (!player.isCreative()) {
 			handStack.shrink(1);
 		}
