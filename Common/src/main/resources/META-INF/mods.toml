@@ -1,0 +1,34 @@
+modLoader="javafml"
+loaderVersion="*"
+license="All rights reserved"
+issueTrackerURL="https://github.com/Serilum/.issue-tracker/labels/Mod:%20Extended%20Bone%20Meal"
+logoFile="icon.png"
+
+[[mods]]
+modId="extendedbonemeal"
+version="3.5"
+displayName="Extended Bone Meal"
+displayURL="https://serilum.com/mod/extended-bone-meal"
+authors="Rick South"
+description='''Extends bone meal behaviour. Instant grow with sneak, grow netherwart and other tweaks.
+'''
+credits='''Thank you very much to my Membership sponsors for supporting the development of this mod:  
+
+Alister, Andrean Olgo, aternosorg, Cherriesaurus, Michael W. S., Nahuel Fernandez, Shana Gitnick, Tyler Behl   
+
+If you would like to contribute too, check out https://serilum.com/donate. Appreciate it! <3   
+'''
+
+[[dependencies.extendedbonemeal]]
+    modId="collective"
+    mandatory=true
+    versionRange="[7.80,)"
+    ordering="NONE"
+    side="BOTH"
+
+[[dependencies.extendedbonemeal]]
+    modId="minecraft"
+    mandatory=true
+    versionRange="[1.21,1.21.1]"
+    ordering="NONE"
+    side="BOTH"
