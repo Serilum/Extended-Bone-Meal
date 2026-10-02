@@ -1,9 +1,9 @@
-package com.natamus.extendedbonemeal;
+package com.serilum.extendedbonemeal;
 
 import com.natamus.collective.check.RegisterMod;
 import com.natamus.collective.check.ShouldLoadCheck;
-import com.natamus.extendedbonemeal.forge.events.ForgeExtendedEvent;
-import com.natamus.extendedbonemeal.util.Reference;
+import com.serilum.extendedbonemeal.forge.events.ForgeExtendedEvent;
+import com.serilum.extendedbonemeal.util.Reference;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.common.Mod;
@@ -28,7 +28,7 @@ public class ModForge {
 	}
 
 	private void loadComplete(final FMLLoadCompleteEvent event) {
-    	MinecraftForge.EVENT_BUS.register(ForgeExtendedEvent.class);
+		MinecraftForge.EVENT_BUS.register(ForgeExtendedEvent.class);
 	}
 
 	private static void setGlobalConstants() {
