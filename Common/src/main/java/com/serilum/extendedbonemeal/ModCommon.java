@@ -1,8 +1,8 @@
-package com.natamus.extendedbonemeal;
+package com.serilum.extendedbonemeal;
 
 
 import com.natamus.collective.globalcallbacks.GlobalCropCallback;
-import com.natamus.extendedbonemeal.events.ExtendedEvent;
+import com.serilum.extendedbonemeal.events.ExtendedEvent;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;

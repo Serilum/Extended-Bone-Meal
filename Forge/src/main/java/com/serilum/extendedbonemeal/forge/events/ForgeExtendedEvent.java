@@ -1,6 +1,6 @@
-package com.natamus.extendedbonemeal.forge.events;
+package com.serilum.extendedbonemeal.forge.events;
 
-import com.natamus.extendedbonemeal.events.ExtendedEvent;
+import com.serilum.extendedbonemeal.events.ExtendedEvent;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 

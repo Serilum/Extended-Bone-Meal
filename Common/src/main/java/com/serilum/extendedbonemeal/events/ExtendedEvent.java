@@ -1,7 +1,7 @@
-package com.natamus.extendedbonemeal.events;
+package com.serilum.extendedbonemeal.events;
 
 import com.natamus.collective.functions.CropFunctions;
-import com.natamus.extendedbonemeal.util.Util;
+import com.serilum.extendedbonemeal.util.Util;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.entity.player.Player;
