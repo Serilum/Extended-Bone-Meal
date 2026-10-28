@@ -1,6 +1,6 @@
-package com.natamus.extendedbonemeal.neoforge.events;
+package com.serilum.extendedbonemeal.neoforge.events;
 
-import com.natamus.extendedbonemeal.events.ExtendedEvent;
+import com.serilum.extendedbonemeal.events.ExtendedEvent;
 import net.neoforged.neoforge.event.entity.player.PlayerInteractEvent;
 import net.neoforged.bus.api.SubscribeEvent;
 

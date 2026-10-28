@@ -1,10 +1,10 @@
-package com.natamus.extendedbonemeal;
+package com.serilum.extendedbonemeal;
 
 import com.natamus.collective.check.RegisterMod;
 import com.natamus.collective.check.ShouldLoadCheck;
 import com.natamus.collective.fabric.callbacks.CollectiveBlockEvents;
-import com.natamus.extendedbonemeal.events.ExtendedEvent;
-import com.natamus.extendedbonemeal.util.Reference;
+import com.serilum.extendedbonemeal.events.ExtendedEvent;
+import com.serilum.extendedbonemeal.util.Reference;
 import net.fabricmc.api.ModInitializer;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.InteractionHand;
