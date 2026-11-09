@@ -19,5 +19,9 @@ public class ModCommon {
 		GlobalCropCallback.ON_BONE_MEAL_APPLY.register((Player player, Level level, BlockPos blockPos, BlockState blockState, ItemStack itemStack) -> {
 			return ExtendedEvent.onBoneMeal(player, level, blockPos, blockState, itemStack);
 		});
+
+		GlobalCropCallback.ON_BONE_MEAL_GROW.register((Level level, BlockPos blockPos, BlockState blockState, ItemStack itemStack) -> {
+			return ExtendedEvent.onBoneMealGrow(level, blockPos, blockState, itemStack);
+		});
 	}
 }
