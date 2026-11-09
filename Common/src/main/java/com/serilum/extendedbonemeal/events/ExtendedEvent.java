@@ -58,29 +58,32 @@ public class ExtendedEvent {
 		if (block.equals(Blocks.NETHER_WART)) {
 			return CropFunctions.growCrop(level, player, state, targetPos, handStack);
 		}
-		else if (block.equals(Blocks.CACTUS)) {
-			if (!CropFunctions.growCactus(level, targetPos)) {
-				return true;
-			}
-		}
-		else if (block.equals(Blocks.SUGAR_CANE)) {
-			if (!CropFunctions.growSugarcane(level, targetPos)) {
-				return true;
-			}
-		}
-		else if (block.equals(Blocks.VINE)) {
-			if (!CropFunctions.growVine(level, targetPos)) {
-				return true;
-			}
-		}
-		else {
+
+		if (!Util.growTallCrop(level, targetPos, block)) {
 			return true;
 		}
 
 		if (!player.isCreative()) {
 			handStack.shrink(1);
 		}
-		
-		return true;
+
+		return false;
+	}
+
+	public static boolean onBoneMealGrow(Level level, BlockPos pos, BlockState blockState, ItemStack itemStack) {
+		if (level.isClientSide()) {
+			return false;
+		}
+
+		if (!Util.isBoneMeal(itemStack)) {
+			return false;
+		}
+
+		Block block = blockState.getBlock();
+		if (block.equals(Blocks.NETHER_WART)) {
+			return Util.growNetherWartOneStage(level, pos, blockState);
+		}
+
+		return Util.growTallCrop(level, pos, block);
 	}
 }
